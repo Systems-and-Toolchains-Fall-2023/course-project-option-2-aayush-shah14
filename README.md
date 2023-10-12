@@ -25,7 +25,7 @@ There are 34 columns in the dataset. Following is a brief description of each al
 
 3.	tcp.len: Length of the TCP packet. Maximum in the dataset is 32768, which is half of the maximum TCP size of 65535. Constraint: Should always be less than 65535.
 
-** Columns 4-7 specify Connect Acknowledgement part of the package. The connection between Client and Broker is set up through a connect-acknowledgement handshake. ate the connection by sending a CONNECT message to the MQTT broker. The broker confirms that a connection has been established by responding with a CONNACK message. Both the MQTT client and the broker require a TCP/IP stack to communicate. **
+**Columns 4-7 specify Connect Acknowledgement part of the package. The connection between Client and Broker is set up through a connect-acknowledgement handshake. ate the connection by sending a CONNECT message to the MQTT broker. The broker confirms that a connection has been established by responding with a CONNACK message. Both the MQTT client and the broker require a TCP/IP stack to communicate.**
 
 4.	mqtt.conack.flags: MQTT Connect Acknowledgment flags. This is full of zeros indicating a succesful connection. 
 
@@ -42,7 +42,7 @@ There are 34 columns in the dataset. Following is a brief description of each al
 0x04: Connection Refused, bad username or password
 0x05: Connection Refused, not authorized
 
-** Columns 8-15 contain various flags for different connection scenarios. They are binary variables (either 0 or 1) except mqtt.conflags, which is combined connect flags. **
+**Columns 8-15 contain various flags for different connection scenarios. They are binary variables (either 0 or 1) except mqtt.conflags, which is combined connect flags.**
 
 8.	mqtt.conflag.cleansess: MQTT Connect flags for Clean Session. Constraint: 0 or 1. 
 
@@ -88,8 +88,8 @@ There are 34 columns in the dataset. Following is a brief description of each al
 
 29.	mqtt.ver: MQTT Protocol Version. Goes from 0 to 4. 
 
-** Columns 30-33 specify the Will messages. This pertains to "Last Will and Testament" mechanism that allows an MQTT client to specify a message that the broker will publish on behalf of the client in the event of an unexpected or unclean client disconnection. It is a feature designed to handle scenarios where a client may disconnect abruptly or unexpectedly without sending a proper "DISCONNECT" message to the broker.
-This scenario seems rare, hence all the values in these columns are 0. These columns can be dropped. **
+**Columns 30-33 specify the Will messages. This pertains to "Last Will and Testament" mechanism that allows an MQTT client to specify a message that the broker will publish on behalf of the client in the event of an unexpected or unclean client disconnection. It is a feature designed to handle scenarios where a client may disconnect abruptly or unexpectedly without sending a proper "DISCONNECT" message to the broker.
+This scenario seems rare, hence all the values in these columns are 0. These columns can be dropped.**
 
 30.	mqtt.willmsg: MQTT Will Message.
 
