@@ -6,7 +6,9 @@ The goal of the course project is to analyze the MQTTset database on Kaggle: htt
 ## MQTT Protocol:
 
 MQTT is a protocol for communication between IoT devices. It was invented in 1999 for use in the oil and gas industry. Engineers needed a protocol for minimal bandwidth and minimal battery loss to monitor oil pipelines via satellite.
-The MQTT protocol works on the principles of the publish/subscribe model. 
+The MQTT protocol works on the principles of the publish/subscribe model as shown in the figure. 
+
+![MQTT Communication](mqtt_comm.png)
 
 ## This dataset:
 
@@ -17,7 +19,7 @@ The data pertaining to message transmission between these is collated in CSV fil
 
 There are 34 columns in the dataset. Following is a brief description of each along with some constraints. 
 
-### Columns 1-3 define the TCP features upon which MQTT acts. 
+**Columns 1-3 define the TCP features upon which MQTT acts.** 
 
 1.	tcp.flags: Flags associated with the TCP (Transmission Control Protocol) packet. Frequent two values: 0x00000018 and 0x00000010. 0x00000018 indicates that both the PSH and ACK flags are set in the TCP header whereas 0x00000010 depicts only ACK. Categorical value hence String type. 
 
