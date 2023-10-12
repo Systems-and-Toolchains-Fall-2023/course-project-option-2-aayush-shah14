@@ -1,7 +1,7 @@
 # Course Project - MQTT - Aayush Shah
 
-This read me file contains description about the MQTT dataset and its features. This GitHub repository contains all the relevant code and dataset for '18-763 Systems and ToolChains for AI Engineers' course project.
-The goal of the course project is to analyze the MQTTset database on Kaggle: https://www.kaggle.com/datasets/cnrieiit/mqttset.
+This GitHub repository contains all the relevant code and dataset for '18-763 Systems and ToolChains for AI Engineers' course project.
+The goal of the course project is to analyze the [MQTTset database](https://www.kaggle.com/datasets/cnrieiit/mqttset.) and predict the type of attack using machine learning techniques.
 
 ## MQTT Protocol:
 
@@ -17,7 +17,7 @@ The data pertaining to message transmission between these is collated in CSV fil
 
 ## Columns:
 
-There are 34 columns in the dataset. Following is a brief description of each along with some constraints. 
+There are 34 columns in the dataset. Following is a brief description of each along with their constraints. 
 
 **Columns 1-3 define the TCP features upon which MQTT acts.** 
 
@@ -31,9 +31,9 @@ There are 34 columns in the dataset. Following is a brief description of each al
 
 4.	mqtt.conack.flags: MQTT Connect Acknowledgment flags. This is full of zeros indicating a succesful connection. 
 
-5.	mqtt.conack.flags.reserved: Reserved flags in MQTT Connect Acknowledgment. The value of this is always set to 0. 
+5.	mqtt.conack.flags.reserved: Reserved flags in MQTT Connect Acknowledgment. The value of this is always set to 0 in the dataset. 
 
-6.	mqtt.conack.flags.sp: MQTT Connect Acknowledgment flags for Session Present. The value of this is also always set to 0.
+6.	mqtt.conack.flags.sp: MQTT Connect Acknowledgment flags for Session Present. The value of this is also always set to 0 in the dataset.
 
 7.	mqtt.conack.val: MQTT Connect Acknowledgment value. Constraint: should be between 0 to 5. Following is what each value depicts. 
 
@@ -89,14 +89,14 @@ There are 34 columns in the dataset. Following is a brief description of each al
 
 26.	mqtt.retain: MQTT Retain flag. Constraint: 0 or 1. 
 
-27.	mqtt.sub.qos: MQTT Subscribe Quality of Service. All values are 0, can be dropped.
+27.	mqtt.sub.qos: MQTT Subscribe Quality of Service. All values are 0.
 
-28.	mqtt.suback.qos: MQTT Subscribe Acknowledgment Quality of Service. All values are 0, can be dropped. 
+28.	mqtt.suback.qos: MQTT Subscribe Acknowledgment Quality of Service. All values are 0. 
 
 29.	mqtt.ver: MQTT Protocol Version. Goes from 0 to 4. 
 
 **Columns 30-33 specify the Will messages. This pertains to "Last Will and Testament" mechanism that allows an MQTT client to specify a message that the broker will publish on behalf of the client in the event of an unexpected or unclean client disconnection. It is a feature designed to handle scenarios where a client may disconnect abruptly or unexpectedly without sending a proper "DISCONNECT" message to the broker.
-This scenario seems rare, hence all the values in these columns are 0. These columns can be dropped.**
+This scenario seems rare, hence all the values in these columns are 0.**
 
 30.	mqtt.willmsg: MQTT Will Message.
 
