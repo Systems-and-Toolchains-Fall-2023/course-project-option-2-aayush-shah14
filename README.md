@@ -3,19 +3,19 @@
 This GitHub repository contains all the relevant code and dataset for '18-763 Systems and ToolChains for AI Engineers' course project.
 The goal of the course project is to analyze the [MQTTset database](https://www.kaggle.com/datasets/cnrieiit/mqttset) and predict the type of attack using machine learning techniques.
 
-## MQTT Protocol:
+## MQTT Protocol
 
 MQTT is a protocol for communication between IoT devices. It was invented in 1999 for use in the oil and gas industry. Engineers needed a protocol for minimal bandwidth and minimal battery loss to monitor oil pipelines via satellite.
 The MQTT protocol works on the principles of the publish/subscribe model as shown in the figure. 
 
 ![MQTT Communication](mqtt_comm.png)
 
-## This dataset:
+## Dataset
 
 The scenario for this dataset is related to a smart home environment where 8 sensors retrieve information about temperature, light, humidity, CO-Gas, motion, smoke, door and fan. The sensors send the data to a MQTT broker which is instantiated by using Eclipse Mosquitto, an open-source MQTT broker.
 The data pertaining to message transmission between these is collated in CSV files for the training and testing. I have used the reduced version in this project - train70_reduced.csv and test30_reduced.csv. This indicates a 70-30 train-test split. 
 
-## Columns:
+## Features
 
 There are 34 columns in the dataset. Following is a brief description of each along with their constraints. 
 
@@ -113,7 +113,7 @@ This scenario seems rare, hence all the values in these columns are 0.**
 11% are the rest. 
 
 
-## References: 
+## References
 The un-abbreviated name of each column was generated from ChatGPT after which further research was done from variety of sources to write the description and constraints:
 
 1) https://aws.amazon.com/what-is/mqtt/
