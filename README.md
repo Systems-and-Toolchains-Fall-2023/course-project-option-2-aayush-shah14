@@ -27,7 +27,7 @@ There are 34 columns in the dataset. Following is a brief description of each al
 
 3.	tcp.len: Length of the TCP packet. Maximum in the dataset is 32768, which is half of the maximum TCP size of 65535. Constraint: Should always be less than 65535.
 
-**Columns 4-7 specify Connect Acknowledgement part of the package. The connection between Client and Broker is set up through a connect-acknowledgement handshake. ate the connection by sending a CONNECT message to the MQTT broker. The broker confirms that a connection has been established by responding with a CONNACK message. Both the MQTT client and the broker require a TCP/IP stack to communicate.**
+**Columns 4-7 specify Connect Acknowledgement part of the package. The connection between Client and Broker is set up through a connect-acknowledgement handshake. Clients initiate the connection by sending a CONNECT message to the MQTT broker. The broker confirms that a connection has been established by responding with a CONNACK message. Both the MQTT client and the broker require a TCP/IP stack to communicate.**
 
 4.	mqtt.conack.flags: MQTT Connect Acknowledgment flags. This is full of zeros indicating a succesful connection. 
 
