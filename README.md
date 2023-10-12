@@ -1,7 +1,7 @@
 # Course Project - MQTT - Aayush Shah
 
 This GitHub repository contains all the relevant code and dataset for '18-763 Systems and ToolChains for AI Engineers' course project.
-The goal of the course project is to analyze the [MQTTset database](https://www.kaggle.com/datasets/cnrieiit/mqttset.) and predict the type of attack using machine learning techniques.
+The goal of the course project is to analyze the [MQTTset database](https://www.kaggle.com/datasets/cnrieiit/mqttset) and predict the type of attack using machine learning techniques.
 
 ## MQTT Protocol:
 
