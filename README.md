@@ -37,12 +37,12 @@ There are 34 columns in the dataset. Following is a brief description of each al
 
 7.	mqtt.conack.val: MQTT Connect Acknowledgment value. Constraint: should be between 0 to 5. Following is what each value depicts. 
 
-0x00: Connection Accepted
-0x01: Connection Refused, unacceptable protocol version
-0x02: Connection Refused, identifier rejected
-0x03: Connection Refused, server unavailable
-0x04: Connection Refused, bad username or password
-0x05: Connection Refused, not authorized
+*0x00: Connection Accepted
+*0x01: Connection Refused, unacceptable protocol version
+*0x02: Connection Refused, identifier rejected
+*0x03: Connection Refused, server unavailable
+*0x04: Connection Refused, bad username or password
+*0x05: Connection Refused, not authorized
 
 **Columns 8-15 contain various flags for different connection scenarios. They are binary variables (either 0 or 1) except mqtt.conflags, which is combined connect flags.**
 
