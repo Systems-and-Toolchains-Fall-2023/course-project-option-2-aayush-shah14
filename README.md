@@ -112,6 +112,22 @@ This scenario seems rare, hence all the values in these columns are 0.**
 39% of the values are dos, indicating denial of service type of attack. 
 11% are the rest. 
 
+## Code
+There are 4 code files in the form of Jupyter notebooks. The ones with 'Cloud' in their name are meant to be run on Google Cloud Platform and the rest are supposed to be run locally, preferrably through Anaconda. 
+Requirements: Python 3.11, PySpark 3.4.1, Numpy 1.24.1, Pandas 2.0.3, Torch 2.1.0, Confluent-Kafka 2.2.0.
+
+**Running local notebooks**
+
+1) Download the files in the 'data' folder of the repository and replace the path in the 2nd cell while reading df_train and df_test to appropriate one.
+2) Download pgAdmin4 and create a new server with schema named 'mqtt'. Download the JBDC jar executable and put in the bin folder of Spark home directory. Replace the data base properties according to the database you created.
+3) If you have CUDA enabled PyTorch, run the rest of the cells as they are. Otherwise change the use_GPU variable to 'False' in all the instances of the 'train' function.
+
+**Running Cloud notebooks**
+
+
+
+
+
 
 ## References
 The un-abbreviated name of each column was generated from ChatGPT after which further research was done from variety of sources to write the description and constraints:
