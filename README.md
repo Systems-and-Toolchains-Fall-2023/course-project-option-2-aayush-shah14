@@ -106,7 +106,7 @@ This scenario seems rare, hence all the values in these columns are 0.**
 
 33.	mqtt.willtopic_len: Length of the MQTT Will Topic.
 
-34.	target: The target, which is the type of attack in this case. The types of attack in the dataset are: legitimate, dos, bruteforce, malformed, slowite.
+34.	target: The target, which is the type of attack in this case. The types of attack in the dataset are: legitimate, dos, bruteforce, malformed, slowite, flood.
 
 50% of the values are legitimate, which means the network is not undergoing an attack and is legitimate. 
 39% of the values are dos, indicating denial of service type of attack. 
@@ -123,6 +123,37 @@ Requirements: Python 3.11, PySpark 3.4.1, Numpy 1.24.1, Pandas 2.0.3, Torch 2.1.
 3) If you have CUDA enabled PyTorch, run the rest of the cells as they are. Otherwise change the use_GPU variable to 'False' in all the instances of the 'train' function.
 
 **Running Cloud notebooks**
+
+1) Transfer the files in the 'data' folder of the repository to a cloud storage bucket. Copy the path of the transferred files and paste then in the 2nd cell while reading df_train and df_test.
+2) Download the postgres jar file and store it in the bucket. Replace the 'spark.jars' configuration with the location.
+3) Create a Cloud SQL Postgres instance and allow all IP addresses by adding a network and putting 0.0.0.0/0 as the address. Replace the database properties dictionary with the new Cloud SQL properties. Create a schema named 'mqtt' through the gcloud command line.
+4) The remaining code should be run as it is.
+
+## Results and Discussions
+
+### Spark
+
+Model: Logistic Regression and Random Forest Classifier. 
+I chose these models because I wanted to compare the performances of a probabilistic model compared to a decision tree based mode. Both models were trained first with their default parameters and five fold cross validation was conducted. Accuracies observed were
+
+**Hyperparameter Tuning**
+
+* Logistic Regression: Regularization parameter and maximum number of iterations were chosen as tunable parameters. I wanted to see whether the model can fully converge by trying out different maximum iterations, and whether test accuracy can improve by reducing overfittig through regularization.
+* Random Forests: Maximum depth of the tree and the maximum number of bins were chosen tunable parameters. The depth of the tree controls the representative power of the tree and overfitting, hence I wanted to observe how it affects the test accuracy. The bins control the number of partitions a continuous variable is divided into while splitting the tree. Since our data has continuous variables I decided to tune this parameter.
+
+### PyTorch
+
+Model: Feed forward neural network with depths 1 and 3.  
+I wanted to compare the effect of depth of the architecture on the performance of the model. 
+Model 1 has one hidden layer with 16 neurons, model 2 has 3 hidden layers with 16, 16, 8 neurons. Both have ReLU activations. Initially learning rate of 0.001 and batch size of 32 was used for benchmarking. Adam optimizer along with exponential learning rate scheduler was used with gamma = 1.  
+
+**Hyperparameter Tuning**
+
+Both models were tuned on learning rate and batch size hyperparameters, since the training process is most affected by these values. Learning rates from 0.1, 0.01, 0.001 and batch sizes from 32, 64, 128 was used. 
+
+   
+
+
 
 
 
