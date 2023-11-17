@@ -136,7 +136,7 @@ Requirements: Python 3.11, PySpark 3.4.1, Numpy 1.24.1, Pandas 2.0.3, Torch 2.1.
 ### Spark
 
 Model: Logistic Regression and Random Forest Classifier. 
-I chose these models because I wanted to compare the performances of a probabilistic model compared to a decision tree based mode. Both models were trained first with their default parameters and five fold cross validation was conducted. Accuracies observed were
+I chose these models because I wanted to compare the performances of a probabilistic model compared to a decision tree based mode. Both models were trained first with their default parameters and five fold cross validation was conducted. 
 
 **Hyperparameter Tuning**
 
@@ -157,13 +157,14 @@ Both models were tuned on learning rate and batch size hyperparameters, since th
 
 ### Spark
 Before hyperparameter tuning, Logistic Regression had an accuracy of 82.04% on the test set and Random forest had accuracy of 82.08%.
-After hyperparameter tuning logistic regression accuracy decreased, signifying that the chosen hyperparameters did not improve the model by much. However, Random forest accuracy increased significantly to 89.67% and is the better performing model of the two. 
+After hyperparameter tuning logistic regression accuracy decreased, signifying that the chosen hyperparameters did not improve the model by much. However, Random forest accuracy increased significantly to 89.67% and is the better performing model out of the two. 
 
 ### PyTorch
 
-Model 1 with depth 1 was having significant overfitting as can be seen in the training curve with validation loss continuously increasing. The test accuracy of 82.72%. After hyperparameter tuning the training curve improved and the validation losses stabilised, albeit did not decrease. However, the accuracy increased marginally to 82.73%.
+Model 1 with depth 1 was having significant overfitting as can be seen in the training curve with validation loss continuously increasing. The test accuracy is 82.72%. After hyperparameter tuning the training curve improved and the validation losses stabilised, albeit did not decrease. However, the accuracy increased marginally to 82.73%.
 
-Model 2 had an initial test accuracy of 82.74% with validation and train losses both decreasing. The accuracy plots were also increasing. After hyperparameter tuning the model did not improve much and the test accuracy remained around 82.74%, signifying that the chosen hyperparameters were not sufficient to improve the performance of a deeper model. However, the deeper model still performs better than the model with depth 1. 
+Model 2 had an initial test accuracy of 82.74% with validation and train losses both decreasing. The accuracy plots were also increasing. 
+After hyperparameter tuning the model did not improve much and the test accuracy remained around 82.74%, signifying that the chosen hyperparameters were not sufficient to improve the performance of a deeper model. However, the deeper model still performs better than the model with depth 1. 
 
 ## Conclusion
 
