@@ -122,14 +122,18 @@ Requirements: Python 3.11, PySpark 3.4.1, Numpy 1.24.1, Pandas 2.0.3, Torch 2.1.
 2) Download pgAdmin4 and create a new server with schema named 'mqtt'. Download the JBDC jar executable and put in the bin folder of Spark home directory. Replace the data base properties according to the database you created.
 3) If you have CUDA enabled PyTorch, run the rest of the cells as they are. Otherwise change the use_GPU variable to 'False' in all the instances of the 'train' function.
 
+Code walkthrough for Local notebooks: https://cmu.box.com/s/qwsjxt65hglwsgi83rdizea53u7rom5x
+
 **Running Cloud notebooks**
 
 1) Transfer the files in the 'data' folder of the repository to a cloud storage bucket. Copy the path of the transferred files and paste then in the 2nd cell while reading df_train and df_test.
 2) Download the postgres jar file and store it in the bucket. Replace the 'spark.jars' configuration with the location.
-3) Create a Cloud SQL Postgres instance and allow all IP addresses by adding a network and putting 0.0.0.0/0 as the address. Replace the database properties dictionary with the new Cloud SQL properties. Create a schema named 'mqtt' through the gcloud command line.
+3) Create a Cloud SQL Postgres instance and allow all IP addresses by adding a network and putting 0.0.0.0/0 as the address. Replace the database properties dictionary with the new Cloud SQL properties. 
 4) The remaining code should be run as it is.
 
-## Results and Discussions
+Code walkthrough for Cloud Notebooks: https://cmu.box.com/s/djm2t30rkckbqh7g8hw8ousa7bqltqqc
+
+## Methodology
 
 ### Spark
 
@@ -151,14 +155,21 @@ Model 1 has one hidden layer with 16 neurons, model 2 has 3 hidden layers with 1
 
 Both models were tuned on learning rate and batch size hyperparameters, since the training process is most affected by these values. Learning rates from 0.1, 0.01, 0.001 and batch sizes from 32, 64, 128 was used. 
 
-   
+## Results and Discussions
 
+### Spark
+Before hyperparameter tuning, Logistic Regression had an accuracy of 82.04% on the test set and Random forest had accuracy of 82.08%.
+After hyperparameter tuning logistic regression accuracy decreased, signifying that the chosen hyperparameters did not improve the model by much. However, Random forest accuracy increased significantly to 89.67% and is the better performing model of the two. 
 
+### PyTorch
 
+Model 1 with depth 1 was having significant overfitting as can be seen in the training curve with validation loss continuously increasing. The test accuracy of 82.72%. After hyperparameter tuning the training curve improved and the validation losses stabilised, albeit did not decrease. However, the accuracy increased marginally to 82.73%.
 
+Model 2 had an initial test accuracy of 82.74% with validation and train losses both decreasing. The accuracy plots were also increasing. After hyperparameter tuning the model did not improve much and the test accuracy remained around 82.74%, signifying that the chosen hyperparameters were not sufficient to improve the performance of a deeper model. However, the deeper model still performs better than the model with depth 1. 
 
+## Conclusion
 
-
+Out of all the models, Random forest classifier after hyperparameter tuning performed the best on test dataset with an accuracy of 89.67%. 
 
 ## References
 The un-abbreviated name of each column was generated from ChatGPT after which further research was done from variety of sources to write the description and constraints:
