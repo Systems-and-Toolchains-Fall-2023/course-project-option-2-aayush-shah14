@@ -121,8 +121,7 @@ Requirements: Python 3.11, PySpark 3.4.1, Numpy 1.24.1, Pandas 2.0.3, Torch 2.1.
 1) Download the files in the 'data' folder of the repository and replace the path in the 2nd cell while reading df_train and df_test to appropriate one.
 2) Download pgAdmin4 and create a new server with schema named 'mqtt'. Download the JBDC jar executable and put in the bin folder of Spark home directory. Replace the data base properties according to the database you created.
 3) If you have CUDA enabled PyTorch, run the rest of the cells as they are. Otherwise change the use_GPU variable to 'False' in all the instances of the 'train' function.
-
-Code walkthrough for Local notebooks: https://cmu.box.com/s/qwsjxt65hglwsgi83rdizea53u7rom5x
+4) ![Code walkthrough for Local notebooks](https://cmu.box.com/s/qwsjxt65hglwsgi83rdizea53u7rom5x)
 
 **Running Cloud notebooks**
 
@@ -130,8 +129,7 @@ Code walkthrough for Local notebooks: https://cmu.box.com/s/qwsjxt65hglwsgi83rdi
 2) Download the postgres jar file and store it in the bucket. Replace the 'spark.jars' configuration with the location.
 3) Create a Cloud SQL Postgres instance and allow all IP addresses by adding a network and putting 0.0.0.0/0 as the address. Replace the database properties dictionary with the new Cloud SQL properties. 
 4) The remaining code should be run as it is.
-
-Code walkthrough for Cloud Notebooks: https://cmu.box.com/s/djm2t30rkckbqh7g8hw8ousa7bqltqqc
+5) ![Code walkthrough for Cloud Notebooks](https://cmu.box.com/s/djm2t30rkckbqh7g8hw8ousa7bqltqqc)
 
 ## Methodology
 
